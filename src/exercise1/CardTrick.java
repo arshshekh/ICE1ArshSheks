@@ -15,13 +15,32 @@ public class CardTrick {
         Card[] hand = new Card[7];
 
         for (int i = 0; i < hand.length; i++) {
-            Card card = new Card();
+            Card card = new Card(); 
+               card.setValue ((int)(1 + Math.random()*13));
+              
+              card.setSuit(card.SUITS[(int)(0+Math.random()*3)]);
+              hand[i]=card;
+              System.out.println("card" + (i)+" "+hand[i].getSuit() +" "+hand[i].getValue());
+              
             //card.setValue(insert call to random number generator here)
             // 
             //card.setSuit(Card.SUITS[insert call to random number between 0-3 here])
             // Hint: You can use Random -> random.nextInt(n) to get a random number between 0 and n-1 (inclusive)
             //       Don't worry about duplicates at this point
         }
+        Scanner keyboard = new Scanner(System.in)
+                System.out.print("enter a suit:-");
+                String input = keyboard.nextLine();
+                System.out.print("enter a number:-");
+                int num = keyboard.nextInt();
+                
+                for(int i=0; i<hand.length; i++)
+                {
+                    if (num==hand[i].getValue()&& input.equalsIgnoreCase(hand[i].getSuit()));
+                    {
+                        printinfo();
+                    }
+                }
 
         // insert code to ask the user for Card value and suit, create their card
         // and search the hand here. 
